@@ -159,7 +159,6 @@ height: 500,
 imageLayer.removeChildren();
 imageLayer.add(userImage);
 imageLayer.add(placeholderImage);
-
 imageLayer.draw();
 };
 };
@@ -189,9 +188,9 @@ downloadURI(dataURL, 'stage.png');
 false
 );
 
-// stage.container().style.backgroundColor = 'grey';
-// stage.on('dragmove', () => {
-// background.absolutePosition({ x: 0, y: 0 });
+stage.container().style.backgroundColor = 'grey';
+stage.on('dragmove', () => {
+background.absolutePosition({ x: 0, y: 0 });
 });
 </script>
 </body>
