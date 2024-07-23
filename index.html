@@ -14,6 +14,10 @@ overflow: hidden;
 background-color: #f0f0f0;
 }
 
+#stage-parent {
+width: 100%;
+}
+  
 label {
 display: block;
 }
@@ -130,7 +134,7 @@ reader.readAsDataURL(file);
 });
 
 // background canvas
-stage.container().style.backgroundColor = 'gray';
+// stage.container().style.backgroundColor = 'gray';
 
 // function from https://stackoverflow.com/a/15832662/512042
 function downloadURI(uri, name) {
@@ -151,6 +155,25 @@ downloadURI(dataURL, 'stage.png');
 },
 false
 );
+
+function fitStageIntoParentContainer() {
+var container = document.querySelector('#stage-parent');
+
+// now we need to fit stage into parent container
+var containerWidth = container.offsetWidth;
+
+// but we also make the full scene visible
+// so we need to scale all objects on canvas
+var scale = containerWidth / sceneWidth;
+
+stage.width(sceneWidth * scale);
+stage.height(sceneHeight * scale);
+stage.scale({ x: scale, y: scale });
+}
+
+fitStageIntoParentContainer();
+// adapt the stage on any window resize
+window.addEventListener('resize', fitStageIntoParentContainer);
 </script>
 </body>
 </html>
