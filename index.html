@@ -26,24 +26,6 @@ cursor: pointer;
 position: absolute;
 top: 5px;
 left: 10px;
-background: #f7f7f7 none repeat scroll 0 0;
-border-color: #ccc;
-box-shadow: 0 1px 0 #ccc;
-color: #555;
-vertical-align: top;
-border-radius: 3px;
-border-style: solid;
-border-width: 1px;
-box-sizing: border-box;
-cursor: pointer;
-display: inline-block;
-font-size: 13px;
-height: 28px;
-line-height: 26px;
-margin: 0;
-padding: 0 10px 1px;
-text-decoration: none;
-white-space: nowrap;
 }
 
 #buttons > input {
@@ -66,7 +48,7 @@ border: 1px solid #ccc;
 <input type="file" id="imageInput" accept="image/*">
 <div id="stage-container"></div>
 <div id="buttons"><button id="save">Save as image</button></div>
-<div id="buttons"><button onclick="selectFile()">Pilih File</button></div>
+<button onclick="selectFile()">Pilih File</button>
 
 <script>
 // Initialize Konva  
