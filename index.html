@@ -85,9 +85,7 @@ width: auto;
 <h1>Example KonvaJs</h1>
 <p><input type="file" id="imageInput" accept="image/*"></p>
 <p>
-<div id="stage-parent">
 <div id="stage-container"></div>
-</div>
 </p>
 
 <p>
@@ -96,16 +94,11 @@ width: auto;
 </main>
 <script>
 // Initialize Konva  
-var sceneWidth = 1000;
-var sceneHeight = 1000;
   
 const stage = new Konva.Stage({
 container: 'stage-container',
-// width: 300,
-// height: 300,
-
-width: sceneWidth,
-height: sceneHeight,
+width: 300,
+height: 300,
 });
 
 // Create a layer for the images
@@ -158,7 +151,7 @@ reader.readAsDataURL(file);
 });
 
 // background canvas
-// stage.container().style.backgroundColor = 'gray';
+ stage.container().style.backgroundColor = 'gray';
 
 // function from https://stackoverflow.com/a/15832662/512042
 function downloadURI(uri, name) {
@@ -179,25 +172,6 @@ downloadURI(dataURL, 'stage.png');
 },
 false
 );
-
-function fitStageIntoParentContainer() {
-var container = document.querySelector('#stage-parent');
-
-// now we need to fit stage into parent container
-var containerWidth = container.offsetWidth;
-
-// but we also make the full scene visible
-// so we need to scale all objects on canvas
-var scale = containerWidth / sceneWidth;
-
-stage.width(sceneWidth * scale);
-stage.height(sceneHeight * scale);
-stage.scale({ x: scale, y: scale });
-}
-
-fitStageIntoParentContainer();
-// adapt the stage on any window resize
-window.addEventListener('resize', fitStageIntoParentContainer);
 </script>
 </body>
 </html>
