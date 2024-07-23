@@ -60,17 +60,17 @@ border-color: #666;
 </head>
 
 <body>
-<main>
+
 <h1>Example KonvaJs</h1>
 <p><input type="file" id="imageInput" accept="image/*"></p>
 <p>
 <div id="stage-container"></div>
 </p>
-<iframe src="/downloads/code/sandbox/Gestures.html" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
 <p>
 <button id="save">Save as image</button>
 </p>
-</main>
+
 <script>
 // Initialize Konva  
 
@@ -130,7 +130,7 @@ reader.readAsDataURL(file);
 });
 
 // background canvas
-stage.container().style.backgroundColor = 'green';
+stage.container().style.backgroundColor = 'gray';
 
 // function from https://stackoverflow.com/a/15832662/512042
 function downloadURI(uri, name) {
