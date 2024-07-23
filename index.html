@@ -127,14 +127,14 @@ height: stage.height(),
 
 // Load the "https://placehold.co" image
 const placeholderImg = new Image();
-placeholderImg.src = 'https://jiinbe.github.io/fabricjs/img/twibbon.png';
+placeholderImg.src = 'img/twibbon.png';
 
 placeholderImg.onload = () => {
 // Create a Konva image for the "https://placehold.co" image
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: 1000,
+height: 300,
 });
 
 // Add the user image and the placeholder image to the stage
