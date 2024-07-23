@@ -198,10 +198,10 @@ var containerWidth = container.offsetWidth;
 
 // but we also make the full scene visible
 // so we need to scale all objects on canvas
-var scale = containerWidth / 300;
+var scale = containerWidth / sceneWidth;
 
-stage.width(300 * scale);
-stage.height(300 * scale);
+stage.width(sceneWidth * scale);
+stage.height(sceneHeight * scale);
 stage.scale({ x: scale, y: scale });
 }
 
