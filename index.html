@@ -107,8 +107,8 @@ width: auto;
 // Initialize Konva  
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 1024,
-height: 1024,
+width: 300,
+height: 300,
 });
 
 // Create a layer for the images
@@ -144,7 +144,7 @@ placeholderImg.onload = () => {
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: 1024,
+height: 300,
 });
 
 // Add the user image and the placeholder image to the stage
@@ -180,6 +180,36 @@ downloadURI(dataURL, 'stage.png');
 },
 false
 );
+
+// another solution is to use rectangle shape
+var background = new Konva.Rect({
+x: 0,
+y: 0,
+width: stage.width(),
+height: stage.height(),
+fillLinearGradientStartPoint: { x: 0, y: 0 },
+fillLinearGradientEndPoint: { x: stage.width(), y: stage.height() },
+// gradient into transparent color, so we can see CSS styles
+fillLinearGradientColorStops: [
+0,
+'yellow',
+0.5,
+'blue',
+0.6,
+'rgba(0, 0, 0, 0)',
+],
+// remove background from hit graph for better perf
+// because we don't need any events on the background
+listening: false,
+});
+layer.add(background);
+// the stage is draggable
+// that means absolute position of background may change
+// so we need to reset it back to {0, 0}
+
+stage.on('dragmove', () => {
+background.absolutePosition({ x: 0, y: 0 });
+});
 </script>
 </body>
 </html>
