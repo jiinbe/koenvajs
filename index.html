@@ -74,10 +74,6 @@ background-color: #ddd;
 button:focus {
 border-color: #666;
 }
-
-#stage-parent {
-width: 300px;
-}
   
 main {
 text-align: center;
@@ -92,7 +88,11 @@ text-transform: uppercase;
 font-size: 4em;
 font-weight: 100;
 }
-
+  
+#stage-container {
+width: 100%;
+height: auto;
+}
 @media (min-width: 640px) {
 main {
 max-width: none;
@@ -108,9 +108,7 @@ max-width: none;
 <h1>Example KonvaJs</h1>
 <p><input type="file" id="imageInput" accept="image/*"></p>
 <p>
-<div id="stage-parent"> 
 <div id="stage-container"></div>
-</div>
 </p>
 
 <p>
@@ -121,8 +119,8 @@ max-width: none;
 // Initialize Konva  
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 300,
-height: 300,
+width: 500,
+height: 500,
 });
 
 // Create a layer for the images
@@ -158,7 +156,7 @@ placeholderImg.onload = () => {
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: 300,
+height: 500,
 });
 
 // Add the user image and the placeholder image to the stage
