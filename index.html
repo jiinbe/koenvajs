@@ -58,8 +58,11 @@ var height = window.innerHeight;
   
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 300,
-height: 300,
+// width: 300,
+// height: 300,
+
+  width: width,
+  height: height,
 });
 
 // Create a layer for the images
@@ -96,7 +99,7 @@ placeholderImg.onload = () => {
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: stage.height(),
+height: height,
 });
 
 // Add the user image and the placeholder image to the stage
