@@ -107,8 +107,8 @@ width: auto;
 // Initialize Konva  
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 300,
-height: 300,
+width: 1024,
+height: 1024,
 });
 
 // Create a layer for the images
@@ -144,7 +144,7 @@ placeholderImg.onload = () => {
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: 300,
+height: 1024,
 });
 
 // Add the user image and the placeholder image to the stage
