@@ -111,15 +111,15 @@ max-width: none;
 </main>
 <script>
 // Initialize Konva
-var sceneWidth = 200;
-var sceneHeight = 200;
+// var sceneWidth = 200;
+// var sceneHeight = 200;
   
 const stage = new Konva.Stage({
 container: 'stage-container',
-// width: 300,
-// height: 300,
-width: sceneWidth,
-height: sceneHeight,
+width: 300,
+height: 300,
+// width: sceneWidth,
+// height: sceneHeight,
 });
 
 // Create a layer for the images
@@ -155,7 +155,7 @@ placeholderImg.onload = () => {
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: stage.height(),
+height: 300,
 });
 
 // Add the user image and the placeholder image to the stage
