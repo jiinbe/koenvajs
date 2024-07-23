@@ -89,10 +89,6 @@ font-size: 4em;
 font-weight: 100;
 }
   
-#stage-container {
-width: 100%;
-height: auto;
-}
 @media (min-width: 640px) {
 main {
 max-width: none;
@@ -193,10 +189,9 @@ downloadURI(dataURL, 'stage.png');
 false
 );
 
-stage.container().style.backgroundColor = 'grey';
-
-stage.on('dragmove', () => {
-background.absolutePosition({ x: 0, y: 0 });
+// stage.container().style.backgroundColor = 'grey';
+// stage.on('dragmove', () => {
+// background.absolutePosition({ x: 0, y: 0 });
 });
 </script>
 </body>
