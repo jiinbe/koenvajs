@@ -68,7 +68,9 @@ border-color: #666;
 <h1>Example KonvaJs</h1>
 <p><input type="file" id="imageInput" accept="image/*"></p>
 <p>
+<div id="stage-parent">
 <div id="stage-container"></div>
+</div>
 </p>
 
 <p>
@@ -77,11 +79,16 @@ border-color: #666;
 
 <script>
 // Initialize Konva  
-
+var sceneWidth = 1000;
+var sceneHeight = 1000;
+  
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 300,
-height: 300,
+// width: 300,
+// height: 300,
+
+width: sceneWidth,
+height: sceneHeight,
 });
 
 // Create a layer for the images
