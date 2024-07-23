@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<title>Example Domain</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style type="text/css">
+html, body {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+body {
+color: #333;
+margin: 0;
+padding: 8px;
+box-sizing: border-box;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+color: rgb(0,100,200);
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+a:visited {
+color: rgb(0,80,160);
+}
+
+label {
+display: block;
+}
+
+input, button, select, textarea {
+font-family: inherit;
+font-size: inherit;
+padding: 0.4em;
+margin: 0 0 0.5em 0;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 2px;
+max-width: 100%;
+}
+
+input:disabled {
+color: #ccc;
+}
+
+input[type="range"] {
+height: 0;
+}
+
+button {
+color: #333;
+background-color: #f4f4f4;
+outline: none;
+}
+
+button:disabled {
+color: #999;
+}
+
+button:not(:disabled):active {
+background-color: #ddd;
+}
+
+button:focus {
+border-color: #666;
+}
+
+main {
+padding: 1em;
+max-width: 240px;
+margin: 0 auto;
+}
+
+#stage-parent {
+width: 100%;
+}
+  
+@media (min-width: 640px) {
+main {
+max-width: none;
+}
+}
+</style>    
+<script src="https://cdn.jsdelivr.net/npm/konva@7.2.3/konva.min.js"></script>
+</head>
+
+<body>
+<main>
+<h1>Example KonvaJs</h1>
+<main>
+<p><input type="file" id="imageInput" accept="image/*"></p>
+<p>
+<div id="stage-parent"> 
+<div id="stage-container"></div>
+</div>
+</p>
+
+<p>
+<button id="save">Save as image</button>
+</p>
+</main>
+<script>
+// Initialize Konva
+
+const stage = new Konva.Stage({
+container: 'stage-container',
+width: 300,
+height: 300,
+});
+
+// Create a layer for the images
+const imageLayer = new Konva.Layer();
+
+stage.add(imageLayer);
+
+// Function to handle image upload
+document.getElementById('imageInput').addEventListener('change', function (event) {
+const file = event.target.files[0];
+
+if (file) {
+const reader = new FileReader();
+
+reader.onload = function () {
+const img = new Image();
+img.src = reader.result;
+
+img.onload = function () {
+// Create a Konva image for the user-uploaded image
+const userImage = new Konva.Image({
+image: img,
+width: stage.width(),
+height: stage.height(),
+});
+
+// Load the "https://placehold.co" image
+const placeholderImg = new Image();
+placeholderImg.src = 'twibbon.png';
+
+placeholderImg.onload = () => {
+// Create a Konva image for the "https://placehold.co" image
+const placeholderImage = new Konva.Image({
+image: placeholderImg,
+width: stage.width(),
+height: 300,
+});
+
+// Add the user image and the placeholder image to the stage
+imageLayer.removeChildren();
+imageLayer.add(userImage);
+imageLayer.add(placeholderImage);
+
+imageLayer.draw();
+};
+};
+};
+
+reader.readAsDataURL(file);
+}
+});
+
+// function from https://stackoverflow.com/a/15832662/512042
+function downloadURI(uri, name) {
+var link = document.createElement('a');
+link.download = name;
+link.href = uri;
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+delete link;
+}
+
+document.getElementById('save').addEventListener(
+'click',
+function () {
+var dataURL = stage.toDataURL({ pixelRatio: 3 });
+downloadURI(dataURL, 'stage.png');
+},
+false
+);
+
+function fitStageIntoParentContainer() {
+var container = document.querySelector('#stage-parent');
+
+// now we need to fit stage into parent container
+var containerWidth = container.offsetWidth;
+
+// but we also make the full scene visible
+// so we need to scale all objects on canvas
+var scale = containerWidth / sceneWidth;
+
+stage.width(sceneWidth * scale);
+stage.height(sceneHeight * scale);
+stage.scale({ x: scale, y: scale });
+}
+
+fitStageIntoParentContainer();
+// adapt the stage on any window resize
+window.addEventListener('resize', fitStageIntoParentContainer);
+</script>
+</body>
+</html>
