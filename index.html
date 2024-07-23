@@ -14,7 +14,7 @@ overflow: hidden;
 background-color: #f0f0f0;
 }
 
-#buttons {
+#buttons, input {
 position: absolute;
 top: 5px;
 left: 10px;
@@ -37,10 +37,9 @@ border: 1px solid #ccc;
 
 <body>
 
-<h1>Example KonvaJs</h1>
-<p><input type="file" id="imageInput" accept="image/*"></p>
-<p><div id="stage-container"></div></p>
-<p><button id="save">Save as image</button></p>
+<input type="file" id="imageInput" accept="image/*">
+<div id="stage-container"></div>
+<div id="buttons"><button id="save">Save as image</button></div>
 
 <script>
 // Initialize Konva  
