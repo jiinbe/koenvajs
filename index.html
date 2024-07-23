@@ -24,11 +24,6 @@ background-color: #fdfdff;
 a:link, a:visited {
 color: #38488f;
 text-decoration: none;
-
-#stage-container {
-width: 300px;
-height: 300px;
-}
   
 label {
 display: block;
@@ -85,13 +80,8 @@ width: auto;
 <main>
 <h1>Example KonvaJs</h1>
 <p><input type="file" id="imageInput" accept="image/*"></p>
-<p>
-<div id="stage-container" style="width:300px"></div>
-</p>
-
-<p>
-<button id="save">Save as image</button>
-</p>
+<p><div id="stage-container"></div></p>
+<p><button id="save">Save as image</button></p>
 </main>
 <script>
 // Initialize Konva  
