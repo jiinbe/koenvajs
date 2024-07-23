@@ -113,10 +113,11 @@ max-width: none;
 </main>
 <script>
 // Initialize Konva  
+
 const stage = new Konva.Stage({
 container: 'stage-container',
-width: 500,
-height: 500,
+width: 300,
+height: 300,
 });
 
 // Create a layer for the images
@@ -145,14 +146,14 @@ height: stage.height(),
 
 // Load the "https://placehold.co" image
 const placeholderImg = new Image();
-placeholderImg.src = 'twibbon.png';
+placeholderImg.src = 'https://jiinbe.github.io/fabricjs/img/twibbon.png';
 
 placeholderImg.onload = () => {
 // Create a Konva image for the "https://placehold.co" image
 const placeholderImage = new Konva.Image({
 image: placeholderImg,
 width: stage.width(),
-height: 500,
+height: 300,
 });
 
 // Add the user image and the placeholder image to the stage
@@ -187,11 +188,6 @@ downloadURI(dataURL, 'stage.png');
 },
 false
 );
-
-stage.container().style.backgroundColor = 'grey';
-stage.on('dragmove', () => {
-background.absolutePosition({ x: 0, y: 0 });
-});
 </script>
 </body>
 </html>
