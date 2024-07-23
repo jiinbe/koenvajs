@@ -32,6 +32,9 @@ left: 10px;
 padding: 10px;
 display: block;
 margin-top: 5px;
+}
+
+.btn {
 background:#eee;
 border:solid 1px #ddd;
 font-size:16px;
@@ -52,8 +55,8 @@ width: 100%;
 <input type="file" id="imageInput" accept="image/*">
 <div id="stage-container"></div>
 <div id="buttons">
-<button onclick="selectFile()">Pilih File</button>
-<button id="save">Download</button>
+<button class="btn" onclick="selectFile()">Pilih File</button>
+<button class="btn" id="save">Download</button>
 </div>
 
 <script>
