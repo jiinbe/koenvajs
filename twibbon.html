@@ -50,7 +50,7 @@ font-size: 13px;
 height: 28px;
 line-height: 26px;
 margin: 0;
-padding: 0 10px 1px;
+padding: 6px 12px;
 text-decoration: none;
 white-space: nowrap;
 }
@@ -176,9 +176,10 @@ function selectFile() {
   document.getElementById("imageInput").click();
 }
 </script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script>
 $(function () {
-$('#save').on('click', function () {
+$('.save').on('click', function () {
 $(this).attr( 'disabled', 'disabled' ).button('process').delay(3000).queue(function() {
 $(this).button('complete');
 });        
