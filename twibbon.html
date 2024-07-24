@@ -170,6 +170,7 @@ function selectFile() {
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
+// proses
 $(function () {
 $('.dl').on('click', function () {
 $(this).attr( 'disabled', 'disabled' ).button('process').delay(3000).queue(function() {
@@ -177,31 +178,6 @@ $(this).button('complete');
 });        
 });
 });
-</script>
-<script>
-// share
-async function shareCanvas() {
-const canvas = document.getElementById('stage-container');
-const dataUrl = canvas.toDataURL();
-const blob = await (await fetch(dataUrl)).blob();
-const filesArray = [
-new File(
-[blob],
-'mime.png',
-{
-type: blob.type,
-lastModified: new Date().getTime()
-}
-)
-];
-const shareData = {
-files: filesArray,
-title: "BERGABUNGLAH DENGAN REVOLUSI ONLINE!",
-text: "Bingkai profil Anda dengan warna perlawanan. Biarkan foto profil Anda berbicara banyak tentang perdamaian dan keadilan.",
-url: "https://intifada.pages.dev/",
-};
-navigator.share(shareData);
-}
 </script>
 </body>
 </html>
