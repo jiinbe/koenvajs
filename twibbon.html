@@ -59,6 +59,11 @@ white-space: nowrap;
 background:#999;
 color:#fff;
 }
+
+#div{
+width:50%; 
+margin:0 auto;
+}
   
 #stage-container {
 width: 100%;
@@ -71,7 +76,9 @@ height: 100%;
 <body>
 
 <input type="file" id="imageInput" accept="image/*">
+<div id="box">
 <div id="stage-container"></div>
+</div>
 <div id="buttons">
 <button class="btn" onclick="selectFile()">Pilih File</button>
 <button class="btn" id="save">Download</button>
