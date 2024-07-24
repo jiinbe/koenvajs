@@ -78,7 +78,7 @@ height: 100%;
 </div>
 <div id="buttons">
 <button class="btn" onclick="selectFile()">Pilih File</button>
-<button class="btn" id="save" data-process-text="processing..." data-complete-text="Finish!" autocomplete="off">Download</button>
+<button class="btn dl" id="save" data-process-text="processing..." data-complete-text="Finish!" autocomplete="off">Download</button>
 </div>
 
 <script>
@@ -177,7 +177,7 @@ function selectFile() {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
 $(function () {
-$('#save').on('click', function () {
+$('.dl').on('click', function () {
 $(this).attr( 'disabled', 'disabled' ).button('process').delay(3000).queue(function() {
 $(this).button('complete');
 });        
