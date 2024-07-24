@@ -176,5 +176,15 @@ function selectFile() {
   document.getElementById("imageInput").click();
 }
 </script>
+<script>
+$(function () {
+$('#save').on('click', function () {
+$(this).attr( 'disabled', 'disabled' ).button('process').delay(3000).queue(function() {
+$(this).button('complete');
+});        
+});
+});
+
+</script>
 </body>
 </html>
